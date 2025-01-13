@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.scss';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
 	title: `Pizzaria`,
@@ -13,6 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pt-br'>
+			<Toaster position='bottom-right' />
 			<body>{children}</body>
 		</html>
 	);

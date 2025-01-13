@@ -1,12 +1,11 @@
 import { Header } from './components/header';
-import { Toaster } from 'sonner';
+import { OrderProvider } from '@/providers/order';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<>
 			<Header />
-			<Toaster position='bottom-right' />
-			{children}
+			<OrderProvider>{children}</OrderProvider>
 		</>
 	);
 }
