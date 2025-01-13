@@ -5,7 +5,11 @@ import { X } from 'lucide-react';
 import { OrderContext } from '@/providers/order';
 
 export default function Modalorder() {
-	const { onRequestClose, order } = use(OrderContext);
+	const { onRequestClose, order, finishOrder } = use(OrderContext);
+
+	async function handleFinishOrder() {
+		await finishOrder(order[0].order.id);
+	}
 
 	return (
 		<dialog className={styles.dialogContainer}>
@@ -32,7 +36,7 @@ export default function Modalorder() {
 						</section>
 					))}
 
-					<button className={styles.buttonOrder} onClick={onRequestClose}>
+					<button className={styles.buttonOrder} onClick={handleFinishOrder}>
 						Concluir pedido
 					</button>
 				</article>
